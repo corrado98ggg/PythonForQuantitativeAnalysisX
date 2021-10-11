@@ -2,14 +2,14 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-def import_file(filename):
+def import_file(filename): #path
     data = pd.read_csv(filename, parse_dates = ["Date"])
     data.set_index("Date", inplace = True)
     data.drop(["Time","OI"], axis = 1, inplace = True)
     return data
 
 if __name__ == '__main__':
-    FILENAME = "/Users/corrado/PycharmProjects/PythonForQuantitativeAnalysisX/venv/lib/python3.9/caricamento_dati_&_prime_elab/SPY_Daily.txt"
+    FILENAME = "/venv/lib/python3.9/caricamento_dati_&_prime_elab/SPY_Daily.txt"
     data = import_file(FILENAME)
     print(data.tail(8))
     data.Close.plot()
@@ -32,3 +32,4 @@ if __name__ == '__main__':
     axes[1].grid(True)
     plt.tight_layout()
     plt.show()
+
